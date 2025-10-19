@@ -1,0 +1,151 @@
+[20.10.html](https://github.com/user-attachments/files/22989325/20.10.html)
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Chúc mừng 20/10</title>
+	<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&display=swap" rel="stylesheet"> <!-- Font Dancing Script -->
+	<style>
+		body {
+			margin: 0;
+			padding: 20px;
+			background: linear-gradient(135deg, #f9d1e0 0%, #e8b4c5 100%); /* Gradient pastel hồng nhẹ */
+			font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			min-height: 100vh;
+			overflow: hidden;
+		}
+
+		.greeting-card {
+			background: rgba(255, 255, 255, 0.9);
+			border-radius: 20px;
+			padding: 40px;
+			text-align: center;
+			box-shadow: 0 10px 30px rgba(233, 180, 197, 0.3); /* Bóng mờ tinh tế */
+			max-width: 500px;
+			width: 90%;
+			position: relative;
+			animation: slideUpFadeIn 1s ease-out; /* Entrance wow: Slide up + fade */
+			cursor: pointer;
+			transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94); /* Smooth transition */
+		}
+
+		.greeting-card:hover {
+			transform: scale(1.05); /* Scale nhẹ khi hover */
+			box-shadow: 0 20px 40px rgba(233, 180, 197, 0.5); /* Glow effect wow */
+		}
+
+		.title {
+			color: #e91e63;
+			font-size: 2.5em;
+			margin-bottom: 10px;
+			font-weight: 700;
+			font-family: 'Dancing Script', cursive; /* Font Dancing Script cho tiêu đề */
+			line-height: 1.2;
+		}
+
+		.subtitle {
+			color: #9c27b0;
+			font-size: 1.3em;
+			margin-bottom: 20px;
+			opacity: 0.9;
+			font-family: 'Dancing Script', cursive; /* Font Dancing Script cho phần mô tả */
+			line-height: 1.4;
+			white-space: pre-line; /* Giữ định dạng dòng mới */
+		}
+
+		.cta-text {
+			color: #e91e63;
+			font-size: 1.1em;
+			margin-bottom: 30px;
+			opacity: 0.8;
+			font-family: 'Dancing Script', cursive; /* Font Dancing Script cho CTA */
+		}
+
+		.video-placeholder {
+			width: 100%;
+			height: 200px;
+			background: linear-gradient(135deg, #f0f0f0 0%, #e0e0e0 100%);
+			border-radius: 15px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin-bottom: 20px;
+			position: relative;
+			overflow: hidden;
+		}
+
+		.play-icon {
+			font-size: 4em;
+			color: #e91e63;
+			opacity: 0.7;
+			transition: opacity 0.3s, transform 0.3s;
+		}
+
+		.greeting-card:hover .play-icon {
+			opacity: 1;
+			transform: scale(1.1);
+		}
+
+		.error-note {
+			color: #ff9800;
+			font-size: 0.9em;
+			margin-top: 10px;
+			opacity: 0.7;
+			display: none; /* Ẩn mặc định */
+		}
+
+		/* Entrance animation wow */
+		@keyframes slideUpFadeIn {
+			from {
+				opacity: 0;
+				transform: translateY(50px);
+			}
+			to {
+				opacity: 1;
+				transform: translateY(0);
+			}
+		}
+	</style>
+</head>
+<body>
+	<div class="greeting-card" onclick="openVideo()">
+		<h1 class="title">Chúc mừng 20/10!</h1>
+		<p class="subtitle">Hôm nay là ngày chính thức để phụ nữ tỏa sáng hợp pháp ✨</p>
+		<p class="cta-text">Nhấn vào đây để nhận một liều vitamin “iu thương” dành riêng cho bạn 💖</p>
+		<div class="video-placeholder">
+			<span class="play-icon">▶</span>
+		</div>
+		<p class="error-note" id="errorNote">Lưu ý: Nếu video không mở, hãy kiểm tra thiết lập public trên Canva nhé!</p>
+	</div>
+
+	<script>
+		// Link Canva với tham số để thử autoplay (Canva hỗ trợ autoplay nếu user đã tương tác)
+		const canvaUrl = 'https://www.canva.com/design/DAG2OC52IyI/S4lcPcNr3he9LLa01aeyHg/watch?utm_content=DAG2OC52IyI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h384bae76be&autoplay=true';
+
+		function openVideo() {
+			// Mở tab mới với link Canva (sau click, browser cho phép autoplay)
+			const newWindow = window.open(canvaUrl, '_blank');
+			
+			// Fallback: Nếu không mở được (popup blocker), chuyển hướng trang hiện tại
+			if (!newWindow || newWindow.closed || typeof newWindow.closed == 'undefined') {
+				window.location.href = canvaUrl;
+			}
+			
+			// Kiểm tra lỗi (tùy chọn)
+			// fetch('https://www.canva.com/design/DAG2OC52IyI/embed')
+			//     .then(response => {
+			//         if (!response.ok) {
+			//             document.getElementById('errorNote').style.display = 'block';
+			//         }
+			//     })
+			//     .catch(() => {
+			//         document.getElementById('errorNote').style.display = 'block';
+			//     });
+		}
+	</script>
+</body>
+</html>
